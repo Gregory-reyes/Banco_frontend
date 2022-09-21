@@ -5,11 +5,11 @@
 
         <form v-on:submit.prevent="processLogInUser">
             <label id="user_username"> Username:
-                   <input type="text" v-model="user.username" placeholder="Ingrese su usuario" required> 
+                   <input type="text" v-model="user.username" placeholder="Ingrese Usuario" required> 
             </label>
-<br>
+            <br>
             <label id="user_password"> Password:
-                   <input type="password" v-model="user.password" placeholder="Ingrese su contraseña" required> 
+                   <input type="password" v-model="user.password" placeholder="Ingrese Contraseña" required> 
             </label>
             <br>
             <button type="submit"> Iniciar Sesion </button>  
@@ -19,40 +19,37 @@
 </template>
 
 <script>
-    import axios from 'axios';
-    export default {
-    name: "LogIn",
-    data: function(){
-    return {
-    user: {
-    username:"",
-    password:""
+import axios from 'axios';
+export default {
+    data:function(){
+        return{
+            user:{
+                username:"",
+                password:""
+            }
         }
-         }
-                    },
+    },
 
-    methods: {
-    processLogInUser: function(){
-    axios.post(
-        "https://mision-tic-bank-be.herokuapp.com/login/",
-        this.user,
-        {headers: {}}
-        )
-        .then((result) => {
-            let dataLogIn = {
-            username: this.user.username,
-            token_access: result.data.access,
-            token_refresh: result.data.refresh,
+    methods:{
+        processLogInUser: function(){
+            axios.post("https://bank-be-g52-gregory.herokuapp.com/login/",
+            this.user, {header:{}})
+            .then((result)=>{
+                 let dataLogIn={
+                    username: this.username,
+                    token_access: result.data.access,
+                    token_refresh: result.data.refresh,
+                 } 
+                 this.$emit('completedLogIn', dataLogIn)  
+            }).catch((error)=>{
+                if(error.response.status=="401")
+                    alert("ERROR 401: Credenciales Incorrectas");
             }
-        this.$emit('completedLogIn', dataLogIn)
-        })
-        .catch((error) => {
-            if (error.response.status == "401")
-            alert("ERROR 401: Credenciales Incorrectas.");
-        });
-                                    }
-            }
-                }
+            );
+
+        }
+    }
+}
 </script>
 
 <style>
@@ -74,8 +71,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    }
-
+}
 .logIn_user h2{
     color: #283747;
 }
@@ -91,7 +87,6 @@
     margin: 5px 0;
     border: 1px solid #283747;
 }
-
 .logIn_user button{
     width: 100%;
     height: 40px;

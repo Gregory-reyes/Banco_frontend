@@ -5,11 +5,11 @@
 
         <form v-on:submit.prevent="processLogInUser">
             <label id="user_username"> Username:
-                   <input type="text" v-model="user.username" placeholder="Ingrese Usuario" required> 
+                   <input type="text" v-model="user.username" placeholder="Username" required> 
             </label>
             <br>
             <label id="user_password"> Password:
-                   <input type="password" v-model="user.password" placeholder="Ingrese Contraseña" required> 
+                   <input type="password" v-model="user.password" placeholder="Password" required> 
             </label>
             <br>
             <button type="submit"> Iniciar Sesion </button>  
@@ -36,7 +36,7 @@ export default {
             this.user, {header:{}})
             .then((result)=>{
                  let dataLogIn={
-                    username: this.username,
+                    username: this.user.username,
                     token_access: result.data.access,
                     token_refresh: result.data.refresh,
                  } 

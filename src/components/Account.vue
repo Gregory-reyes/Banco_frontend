@@ -29,7 +29,7 @@
         await this.verifyToken();
         let token = localStorage.getItem("token_access");
         let userId = jwt_decode(token).user_id.toString();
-        axios.get(`	https://bank-be-g52-gregory.herokuapp.com/user/${userId}/`, {headers: {'Authorization': `Bearer ${token}`}})
+        axios.get(`	https://banco-backend-01-148c70f4307b.herokuapp.com/user/${userId}/`, {headers: {'Authorization': `Bearer ${token}`}})
         .then((result) => {
         this.name = result.data.name;
         this.email = result.data.email;
@@ -43,7 +43,7 @@
         },
 
         verifyToken: function () {
-        return axios.post("	https://bank-be-g52-gregory.herokuapp.com/refresh/", {refresh: localStorage.getItem("token_refresh")}, {headers: {}}
+        return axios.post("	https://banco-backend-01-148c70f4307b.herokuapp.com/refresh/", {refresh: localStorage.getItem("token_refresh")}, {headers: {}}
         )
         .then((result) => {
         localStorage.setItem("token_access", result.data.access);
@@ -77,7 +77,7 @@ color: #0f1316;
 }
 .information h2{
 font-size: 40px;
-color: #283747;
+color: #77a8d9;
 }
 .information span{
 color: crimson;

@@ -1,12 +1,12 @@
 <template>
   <div id="app" class="app">
     <div class="header">
-        <h1>Banco Misión TIC G59</h1>
+        <h1><img width="90" height="90" src="https://img.icons8.com/dusk/64/pets.png" alt="pets"/> Banco Happy Pets </h1>
         <nav>
             <button v-if="is_auth" v-on:click="loadHome" > Inicio </button>
             <button v-if="is_auth" v-on:click="loadAccount"> Cuenta </button>
             <button v-if="is_auth" v-on:click="logOut"> Cerrar Sesión </button>
-            <button v-if="!is_auth" v-on:click="loadLogIn"> Iniciar Sesión </button>
+            <button v-if="!is_auth" v-on:click="loadLogIn"> Iniciar Sesión  </button>
             <button v-if="!is_auth" v-on:click="loadSignUp"> Registrarse </button> 
         </nav>
     </div>
@@ -19,7 +19,7 @@
       ></router-view>
   </div>
   <div class="footer">
-      <h2> Derechos de autor reservados para el Grupo 59 </h2>
+      <h2> Derechos reservados Desarrollo e innovación © </h2>
   </div>    
 </template>
 
@@ -95,7 +95,7 @@ body{
   width:100%;
   height: 10vh;
   min-height: 100px;
-  background-color: #283747;
+  background-color: #77a8d9;
   color: #E5E7E9;
   display: flex;
   justify-content: space-between;
@@ -103,14 +103,14 @@ body{
 }
 
 .header h1{
-  width: 50%;
+  width: 30%;
   text-align: center;
 }
 
 .header nav button
 {
   color: #E5E7E9;
-  background: #283747;
+  background: #77a8d9;
   border: 1px solid #E5E7E9;
   border-radius: 5px;
   padding: 10px 20px;
@@ -118,7 +118,7 @@ body{
 
 .header nav button:hover
 {
-  color: #283747;
+  color: #77a8d9;
   background: #E5E7E9;
   border: 1px solid #E5E7E9;
 }
@@ -136,9 +136,10 @@ body{
   margin:0;
   padding:0;
   width: 100%;
-  height: 10vh;
-  min-height: 100px;
-  background-color: #283747;
+  font-size: 14px;
+  height: 9vh;
+  min-height: 60px;
+  background-color: #77a8d9;
   color: #E5E7E9;
 }
 

@@ -27,7 +27,7 @@ export default {
 }
 .greetings h1{
     font-size: 50px;
-    color: #283747;
+    color: #77a8d9;
 }
 .greetings span{
     color: crimson;

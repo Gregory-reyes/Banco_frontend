@@ -44,7 +44,7 @@ export default {
 
     methods:{
         processSignUp:function(){
-            axios.post("https://bank-be-g52-gregory.herokuapp.com/user/", this.user,{headers:{}})
+            axios.post("https://banco-backend-01-148c70f4307b.herokuapp.com/user/", this.user,{headers:{}})
             .then((result)=>{
                 alert("Registro Exitoso");
                 let dataSignUp={
